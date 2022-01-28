@@ -36,10 +36,15 @@
 - VirtualBox
 - Vagrant
 - Ansible
+  
+> [ScreenShot1]     
+> [ScreenShot2]
 
 *Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.*
 
-## Задача 4 (*)
+
+
+## Задача 4 (*) - увы, пока не делал.
 
 Воспроизвести практическую часть лекции самостоятельно.
 
@@ -48,4 +53,10 @@
 ```
 docker ps
 ```
+
 [статья]:https://habr.com/ru/company/flant/blog/456754/
+
+[ScreenShot1]:https://github.com/Alvsok/devops-netology/blob/main/2022-01-28_14-26-36.png
+
+
+[ScreenShot2]:https://github.com/Alvsok/devops-netology/blob/main/2022-01-28_14-27-39.png
