@@ -33,7 +33,7 @@
 > Заменил на свой скриншот:
 
 <p align="center">
-  <img width="1200" height="600" src="./screenshot_05_04_1.png">
+  <img src="./vm.png">
 </p>
 
 ## Задача 3
@@ -43,7 +43,7 @@
 Для получения зачета, вам необходимо предоставить:
 - Скриншот работающего веб-интерфейса Grafana с текущими метриками, как на примере ниже
 <p align="center">
-  <img width="1200" height="600" src="./assets/yc_02.png">
+  <img src="./vm.png">
 </p>
 
 ## Задача 4 (*)
@@ -52,8 +52,3 @@
 
 Для получения зачета, вам необходимо предоставить:
 - Скриншот из Grafana, на котором будут отображаться метрики добавленного вами сервера.
-
-[ScreenShot1]: https://github.com/Alvsok/devops-netology/blob/main/screenshot_05_04_1.png
-
-[ScreenShot2]: 
-
