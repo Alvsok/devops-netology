@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  db:
+    container_name: netopg12_new
+    image: postgres:12
+    environment:
+      POSTGRES_USER: alsok
+      POSTGRES_PASSWORD: netopg12
+      POSTGRES_DB: netodb
+    ports:
+      - "5432:5432"
+    volumes:      
+      - db_vol:/var/lib/postgresql/data/
+      - backup_vol:/var/lib/postgresql/
+
+volumes:
+  db_vol:
+  backup_vol:
+
+
+    
+

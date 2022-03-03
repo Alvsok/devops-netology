@@ -11,12 +11,12 @@
 в который будут складываться данные БД и бэкапы.
 
 Приведите получившуюся команду или docker-compose манифест.
->```$ docker pull postgres:12```    
->```$ docker volume create db_vol```    
->```$ docker volume create backup_vol```    
->```$ docker run --name netopg12 -p 5432:5432 -e POSTGRES_USER=alsok -e POSTGRES_PASSWORD=netopg12 -e POSTGRES_DB=netodb -d postgres:12```
-
-![result](./2022-02-22_10-32-29.png)
+>```docker pull postgres:12```   _(было скачано заранее)_     
+> файл [docker-compose.yml](./netopg/netolpg_old/docker-compose.yml)    
+> запуск команды:    
+> ```docker-compose up -d```     
+> запускает инстанс PostgreSQL (версию 12) и создает тома netopg_backup_vol и netopg_db_vol
+> ![start](./2022-03-03_09-58-19.png)    
 
 ## Задача 2
 
@@ -57,9 +57,9 @@ GRANT DELETE ON TABLE orders TO test_simple_user;
 
 Приведите:
 - итоговый список БД после выполнения пунктов выше,
-![list db](./2022-02-23_10-08-43.png)
+![list db](./2022-03-03_10-11-23.png)
 - описание таблиц (describe)
-![info table](./2022-02-23_10-24-30.png)
+![info table](./2022-03-03_10-13-30.png)
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
 > SELECT * FROM pg_shadow;      
  
@@ -72,7 +72,7 @@ FROM   information_schema.table_privileges
 WHERE  grantee =  'test_simple_user';       
 
 - список пользователей с правами над таблицами test_db
-![list user](./2022-02-23_11-17-29.png)
+![list user](./2022-03-03_10-17-04.png)
 
 ## Задача 3
 
@@ -104,9 +104,11 @@ WHERE  grantee =  'test_simple_user';
 Используя SQL синтаксис:
 - вычислите количество записей для каждой таблицы 
 - приведите в ответе:
-    - запросы 
-    - результаты их выполнения.
-![SQL1](./2022-02-23_11-26-36.png)
+    - запросы
+    - >select count (*) from orders;    
+    - >select count (*) from clients;
+    - результаты их выполнения
+![SQL1](./2022-03-03_10-21-12.png)
 ## Задача 4
 
 Часть пользователей из таблицы clients решили оформить заказы из таблицы orders.
@@ -129,7 +131,7 @@ update  clients set booking = 5 where id = 3;
 Подсказка - используйте директиву `UPDATE`.
 
 > select * from clients as c where  exists (select id from orders as o where c.booking = o.id);
-![SQL2](./2022-02-23_11-36-14.png)
+![SQL2](./2022-03-03_10-23-54.png)
 
 
 ## Задача 5
@@ -138,7 +140,7 @@ update  clients set booking = 5 where id = 3;
 (используя директиву EXPLAIN).
 > explain select * from clients as c where  exists (select id from orders as o where c.booking = o.id);     
 Приведите получившийся результат и объясните что значат полученные значения.
-![SQL2](./2022-02-23_11-40-14.png)
+![SQL2](./2022-03-03_10-24-46.png)
 >планировщик выбирает соединение по хешу, при котором строки одной таблицы записываются в хеш-таблицу в памяти, после чего сканируется другая таблица и для каждой её строки проверяется соответствие по хеш-таблице.
 
 ## Задача 6
@@ -153,6 +155,15 @@ update  clients set booking = 5 where id = 3;
 
 Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
 
+
+> Создадим и запустим новый инстанс PostgreSQL, с именем ```netopg12_new```   
+> Новый файл [docker-compose.yml](./netolpg_new/docker-compose.yml)     
+> Посмотрим, видит ли этот новый инстанс наши наработки. Выполним, например,    
+> ```select count (*) from orders;```    
+> Если в таблице что-то есть, то все ОК.
+> ![OK1](./2022-03-03_11-00-30.png)
+> Посмотрим на "'test_simple_user" - тоже все на месте:
+> ![OK2](./2022-03-03_11-11-07.png)
 ---
 
 ### Как cдавать задание
