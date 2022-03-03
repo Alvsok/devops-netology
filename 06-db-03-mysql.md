@@ -11,8 +11,8 @@
 
 Изучите [бэкап БД](https://github.com/netology-code/virt-homeworks/tree/master/06-db-03-mysql/test_data) и 
 восстановитесь из него.
-> docker pull mysql:8.0     
-> docker volume create mysql_vol
+>   
+> 
 > 
 
 Перейдите в управляющую консоль `mysql` внутри контейнера.

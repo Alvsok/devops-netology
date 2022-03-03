@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  db:
+    container_name: netopmysql8
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: my_netopmysql8
+      MYSQL_DATABASE: netomysql
+      MYSQL_USER: alsok
+      MYSQL_PASSWORD: netopmysql8      
+    ports:
+      - "3306:3306"
+    volumes:      
+      - mysqldata:/var/lib/mysql
+      - ./test_dump.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+volumes:
+  mysqldata:
+
+
+
+  
+
+
+    
+
