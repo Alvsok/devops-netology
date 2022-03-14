@@ -72,7 +72,18 @@ InterfaceError: (InterfaceError) 2013: Lost connection to MySQL server during qu
 > ~~В любом случае, очевидно, что проблема в нехватке памяти. Это означает, чтобы процесс не убивался oom killer'ом, нужно ограничить аппетиты PostgreSQL по потреблению памяти.~~     
 
 
-> В статье, которуе вы рекомендовали, сказано, что в случае удаления процесса PostgreSQL oom киллером необходимо проверить настройку памяти в соответствии с нашим оборудованием.
+> ~В статье, которуе вы рекомендовали, сказано, что в случае удаления процесса PostgreSQL oom киллером необходимо проверить настройку памяти в соответствии с нашим оборудованием.~         
+>   
+_набор параметров, которые нужно крутить:_
+> - shared_buffers;
+> - max_connections и work_mem;
+> - maintenance_work_mem;
+> - effective_cache_size;
+> - huge_pages и vacuum_cost_delay;
+> - temp_buffers;
+> - max_prepared_transactions;
+
+
 
 ---
 
