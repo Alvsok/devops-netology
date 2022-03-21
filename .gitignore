@@ -8,6 +8,8 @@ __pycache__/
 
 *.sql
 
+terraform/.terraform/
+
 # Distribution / packaging
 .Python
 build/
