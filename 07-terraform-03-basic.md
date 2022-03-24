@@ -33,7 +33,7 @@ dynamodb.
 >![terraform workspace list](./2022-03-24_11-06-55.png)   
 * Вывод команды `terraform plan` для воркспейса `prod`.  
 
->[Здесь](https://www.terraform.io/docs/backends/types/s3.html) ссылка на вывод команды для воркспейса `prod`.  
+>[Здесь](https://github.com/Alvsok/devops-netology/blob/main/terraform_plan_prod.txt) ссылка на вывод команды для воркспейса `prod`.  
 >Два ресурса на `prod` создались, работают:
 ![running](./2022-03-24_11-16-10.png)
 
