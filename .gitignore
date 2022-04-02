@@ -9,6 +9,8 @@ __pycache__/
 *.sql
 
 terraform/.terraform/
+terraform_s3/.terraform/
+*/.terraform/
 
 # Distribution / packaging
 .Python
